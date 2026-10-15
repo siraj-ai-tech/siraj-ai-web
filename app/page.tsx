@@ -1,69 +1,13 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ContactCTA } from "./components";
+import { Orbital } from "./visuals";
+
+const services = [
+  { id: "developpement", icon: "⌘", title: "Sites & applications", text: "Des plateformes web et des applications métier conçues autour de vos utilisateurs et de vos objectifs.", tags: "Web · Mobile · E-commerce" },
+  { id: "systemes", icon: "▦", title: "Systèmes internes", text: "Centralisez vos dossiers, vos documents et vos processus dans un outil adapté au fonctionnement de votre équipe.", tags: "Gestion · Workflows · Tableaux de bord" },
+  { id: "ia", icon: "✧", title: "Intelligence artificielle", text: "Exploitez vos documents et automatisez les tâches répétitives avec une IA intégrée à vos outils métier.", tags: "Assistants IA · Documents · Automatisation" },
+];
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+ return <main id="contenu"><section className="hero section-wrap"><div className="hero-content"><p className="eyebrow-pill"><span className="status-dot"/> DÉVELOPPEMENT LOGICIEL & INTELLIGENCE ARTIFICIELLE</p><h1>Des solutions utiles.<br/>Des opérations<br/><span>plus intelligentes.</span></h1><p className="hero-description">SIRAJ-AI conçoit vos sites web, applications et systèmes internes. Nous intégrons l’IA là où elle simplifie le travail, avec une attention particulière au transit et à la logistique.</p><div className="hero-actions"><Link className="button button-primary" href="/contact">Discutons de votre projet ↗</Link><Link className="button button-secondary" href="/expertises">Nos expertises →</Link></div><p className="hero-note"><span>✦</span> Du besoin métier à la solution sur mesure.</p></div><Orbital/></section><div className="values-strip"><div className="section-wrap values-inner"><span>UNE TECHNOLOGIE QUI S’ADAPTE À VOTRE ACTIVITÉ</span><strong>Logiciels sur mesure</strong><strong>IA appliquée</strong><strong>Transit & logistique</strong></div></div><section className="section-wrap section-space"><div className="section-heading"><div><p className="eyebrow">NOS EXPERTISES</p><h2>Vos enjeux métier.<br/><span>Les bons outils pour y répondre.</span></h2></div><Link className="text-link" href="/expertises">Toutes nos expertises ↗</Link></div><div className="service-grid">{services.map((s,i)=><Link className="service-card" href={`/expertises#${s.id}`} key={s.id}><div className="card-top"><span className="service-icon">{s.icon}</span><span>0{i+1}</span></div><h3>{s.title}</h3><p>{s.text}</p><span className="service-tags">{s.tags}</span><span className="card-link">Explorer cette expertise <span>↗</span></span></Link>)}</div></section><section className="sector-section"><div className="section-wrap sector-grid"><div><p className="eyebrow">FOCUS MÉTIER / TRANSIT & LOGISTIQUE</p><h2>Gardez une vision claire<br/><span>de vos opérations.</span></h2><p className="lead">Dossiers de transit, documents, expéditions, facturation : nous concevons des systèmes internes pour relier les étapes de votre activité et faciliter le travail de vos équipes.</p><Link href="/transit-logistique" className="button button-primary">Découvrir nos solutions métier ↗</Link></div><div className="workflow-visual"><div className="workflow-title"><span className="status-dot"/> VOTRE CHAÎNE OPÉRATIONNELLE</div>{[["01","Dossier de transit","Informations et pièces centralisées"],["02","Suivi des opérations","Étapes, responsables et échéances"],["03","Pilotage & analyse","Indicateurs et aide à la décision"]].map(([n,t,d])=><div className="workflow-row" key={n}><span>{n}</span><div><h3>{t}</h3><p>{d}</p></div><span>↗</span></div>)}<p className="visual-note">Exemple de périmètre à adapter à votre organisation.</p></div></div></section><section className="section-wrap section-space"><div className="section-heading"><div><p className="eyebrow">UNE COLLABORATION CONCRÈTE</p><h2>De l’écoute au déploiement.<br/><span>Avec vous, à chaque étape.</span></h2></div><Link className="text-link" href="/notre-approche">Notre méthode de travail ↗</Link></div><div className="steps">{[["01","Comprendre","Observer vos processus et clarifier les priorités."],["02","Concevoir","Définir le périmètre et valider les parcours."],["03","Développer","Construire et tester avec vos retours."],["04","Accompagner","Préparer le lancement et la prise en main."]].map(([n,t,d])=><div key={n}><span className="step-number">{n}</span><h3>{t}</h3><p>{d}</p></div>)}</div></section><ContactCTA/></main>;
 }
